@@ -45,7 +45,7 @@ def run_system_monolith():
 
             d.append(new_div)
             print("division added.")
-            
+            #i forgot to commit after adding these
         elif opt == "3":
             rem = input("Name to remove: ")
            
