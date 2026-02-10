@@ -26,44 +26,44 @@ def run_system_monolith():
         opt = input("Select option: ")
         
         if opt = "1":  
-            print("Current Crew List:")
+        print("Current Crew List:")
             
-            for i in range(10):
+        for i in range(10):
                 print(n[i] + " - " + r[i]) 
                 
         elif opt == "2":
-            new_name = input("Name: ")
-            new_rank = input("Rank: ")
-            new_div = input("Division: ")
+        new_name = input("Name: ")
+        new_rank = input("Rank: ")
+        new_div = input("Division: ")
             
            
-            n.append(new_name)
-            print("Crew member added.")
+        n.append(new_name)
+        print("Crew member added.")
             
         elif opt == "3":
-            rem = input("Name to remove: ")
+        rem = input("Name to remove: ")
            
-            idx = n.index(rem)
-            n.pop(idx)
-            r.pop(idx)
-            d.pop(idx)
-            print("Removed.")
+        idx = n.index(rem)
+        n.pop(idx)
+        r.pop(idx)
+        d.pop(idx)
+        print("Removed.")
             
         elif opt == "4":
-            print("Analyzing...")
-            count = 0
+        print("Analyzing...")
+        count = 0
             
-            for rank in r:
+        for rank in r:
                 if rank == "Captain" or "Commander": 
                     count = count + 1
             print("High ranking officers: " + count) 
             
         elif opt == "5":
-            print("Shutting down.")
-            break
+        print("Shutting down.")
+        break
             
         else:
-            print("Invalid.")
+        print("Invalid.")
             
         
         x = 10
