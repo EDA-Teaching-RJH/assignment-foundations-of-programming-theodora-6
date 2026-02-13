@@ -69,7 +69,7 @@ def run_system_monolith():
             print("Shutting down.")
             break
             
-            x = 10
+        x = 10
         if x > 5:
             print("System Check OK")
         else:
