@@ -93,3 +93,17 @@ def display_roster(names, ranks, divisions, ids):
 
       for i in range(len(names)):
             print(f"{ids[i]<6} {names[i]:<25} {ranks[i]:<20} {divisions[i]:<15}")
+
+def search_crew(names, ranks, divisions, ids):
+      
+      term = input("enter name search term: ").lower()
+      found = False
+
+      for i in range(len(names)):
+            if term in names[i].lower():
+                  print (f"found: {names[i]} | {ranks[i]} | {divisions[i]} | {ids[i]}")
+                  found = True
+        
+            if not found: 
+                print("no matching crew members found.")
+                   
