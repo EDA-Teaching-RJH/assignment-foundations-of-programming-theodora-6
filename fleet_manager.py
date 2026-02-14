@@ -1,10 +1,10 @@
 def init_database():
     names = ["Picard", "Riker", "Data", "Worf", "crusher"]
-    ranks = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "commander"]
-    divisions = ["Command", "Command", "Operations", "Security", "sciences"]
+    ranks = ["captain", "commander", "lt. Commander", "lieutenant", "commander"]
+    divisions = ["command", "command", "operations", "security", "sciences"]
     ids = ["1701", "1702", "1703", "1704", "1705"]
 
-init_database()
+    return names, ranks, divisions, ids
 
 def display_menu():
 
@@ -27,35 +27,32 @@ def display_menu():
 
         choice = input ("choose an option: ")
         return choice
-display_menu()
 
 def add_member(names, ranks, divisions, ids):
       
     name = input ("enter name: ")
     rank = input ("enter rank: ")
     division = input ("enter division: ")
+    
+    crew_id = (input("enterID:"))
+    
 
-    try:
-        crew_id = int(input("enterID:"))
-    except ValueError:
-        print("invalid ID. Must be a number.")
+    valid_ranks = ["captain", "commander", "lieutenant commander", "lieutenant", "ensign"]
 
-        valid_ranks = ["captain", "commander", "lieutenant commander", "lieutenant", "ensign"]
-
-        if crew_id in ids:
+    if crew_id in ids:
              print("error: rank already exists.")
              return
         
-        if rank not in valid_ranks:
+    if rank not in valid_ranks:
              print("error: invalid rank.")
              return
         
-        names.append(name)
-        ranks.append(rank)
-        divisions.append(division) 
-        ids.append(crew_id)        
+    names.append(name)
+    ranks.append(rank)
+    divisions.append(division) 
+    ids.append(crew_id)        
 
-        print("crew member added successfully.")
+    print("crew member added successfully.")
 
 def remove_member(names, ranks, divisions, ids):
              
@@ -69,7 +66,7 @@ def remove_member(names, ranks, divisions, ids):
                   divisions.pop(index)
                   ids.pop(index)
 
-                  print("crew member re,oved successfully.")
+                  print("crew member removed successfully.")
              else:
                   print("error: ID not found.")
                 
@@ -92,7 +89,7 @@ def display_roster(names, ranks, divisions, ids):
       print("-" * 70)
 
       for i in range(len(names)):
-            print(f"{ids[i]<6} {names[i]:<25} {ranks[i]:<20} {divisions[i]:<15}")
+            print(f"{ids[i]:<6} {names[i]:<25} {ranks[i]:<20} {divisions[i]:<15}")
 
 def search_crew(names, ranks, divisions, ids):
       
@@ -111,19 +108,19 @@ def filter_by_division(names, divisions):
 
       division = input("enter division (command, operations, sciences): ")
 
-      print(f"/nMembers in {division} Division: ")
+      print(f"\nMembers in {division} Division:")
       for i in range(len(names)):
-            if divisions[i] == division:
+            if divisions[i].lower() == division.lower():
                   print(names[i])
 
 def calculate_payroll(ranks):
       
-      pay = {"captain": 1000, "commander": 800, "lieutenant commander": 600, "lieutenant": 400, "ensign": 200}
+      pay = {"captain": 1000, "commander": 800, "lt. commander": 600, "lieutenant": 400, "ensign": 200}
 
       total = 0
 
       for rank in ranks:
-            total += pay.get(rank, 0)
+            total += pay.get(rank.lower(), 0)
 
       return total
 
@@ -132,7 +129,7 @@ def count_officers(ranks):
       count = 0
 
       for rank in ranks:
-            if rank == "captain" or rank == "commander":
+            if rank.lower() == "captain" or rank.lower() == "commander":
                   count+= 1
 
       return count
