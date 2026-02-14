@@ -33,7 +33,7 @@ def add_member(names, ranks, divisions, ids):
       
     name = input ("enter name: ")
     rank = input ("enter rank: ")
-    division = input ("enter divisions: ")
+    division = input ("enter division: ")
 
     try:
         crew_id = int(input("enterID:"))
@@ -43,11 +43,11 @@ def add_member(names, ranks, divisions, ids):
         valid_ranks = ["captain", "commander", "lieutenant commander", "lieutenant", "ensign"]
 
         if crew_id in ids:
-             print("error: invali rank.")
+             print("error: rank already exists.")
              return
         
         if rank not in valid_ranks:
-             print("error: nvalid rank.")
+             print("error: invalid rank.")
              return
         
         names.append(name)
