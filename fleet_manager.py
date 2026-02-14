@@ -136,3 +136,47 @@ def count_officers(ranks):
                   count+= 1
 
       return count
+
+
+def main():
+      
+      names, ranks, divisions, ids = init_database()
+
+      while True:
+            choice = display_menu()
+
+            if choice == "1":
+                  add_member(names, ranks, divisions, ids)
+
+            elif choice == "2":
+                  remove_member(names, ranks, divisions, ids)
+            
+            elif choice == "3":
+                  update_rank(names, ranks, ids)
+
+            elif choice == "4":
+                  display_roster(names, ranks, divisions, ids)
+
+            elif choice == "5":
+                  search_crew(names, ranks, divisions, ids)
+
+            elif choice == "6":
+                  filter_by_division(names, divisions)
+            
+            elif choice == "7":
+                  total = calculate_payroll(ranks)
+                  print(f"total payroll cost: {total} credits")
+
+            elif choice == "8":
+                  total_officers = count_officers(ranks)
+                  print(f"total senior officers (captain or commander): {total_officers}")
+
+            elif choice == "9":
+                  print("exiting program...")
+                  break
+            
+            else:
+                  print("invalid choice. please try again.")
+
+if __name__ == "__main__":
+      main()
